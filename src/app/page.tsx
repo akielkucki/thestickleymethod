@@ -11,7 +11,7 @@ import Embed from "@/components/embed";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-gradient-to-b from-white via-sky-50/30 to-white">
+    <main className="overflow-hidden bg-gradient-to-b from-white via-sky-50/30 to-white ">
       <Hero />
       <Stats />
       <Modules />

@@ -1,174 +1,153 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star, CheckCircle2 } from 'lucide-react';
+import {Marquee} from "@/components/ui/marquee";
+
 
 const testimonials = [
-  {
-    name: 'Michael R.',
-    role: 'Member for 8 months',
-    rating: 5,
-    text: 'TSM changed my life. The accountability system kept me on track, and the brotherhood genuinely cares about your success. Lost 30lbs, cleared my skin, and gained confidence I never knew I had.',
-    result: 'Lost 30lbs, Clear Skin'
-  },
-  {
-    name: 'Brandon K.',
-    role: 'Member for 6 months',
-    rating: 5,
-    text: 'Best investment I\'ve ever made. The modules are comprehensive, the community is supportive, and the results speak for themselves. Finally found a program that actually delivers.',
-    result: 'Complete Transformation'
-  },
-  {
-    name: 'Tyler S.',
-    role: 'Member for 1 year',
-    rating: 5,
-    text: 'The Stickley Method isn\'t just about looks - it\'s a complete lifestyle upgrade. The mental health and charisma modules changed how I interact with the world. Worth every penny.',
-    result: 'Improved Confidence'
-  },
-  {
-    name: 'Jordan M.',
-    role: 'Member for 4 months',
-    rating: 5,
-    text: 'I was skeptical at first, but the results are undeniable. The nutrition and fitness modules alone are worth the price. Add in the amazing community support and it\'s a no-brainer.',
-    result: '15lbs Muscle Gain'
-  },
-  {
-    name: 'Cameron L.',
-    role: 'Member for 10 months',
-    rating: 5,
-    text: 'TSM has the most comprehensive looksmaxxing program I\'ve found. Every module is packed with actionable advice. The accountability partners pushed me harder than I ever pushed myself.',
-    result: 'Jawline Definition'
-  },
-  {
-    name: 'Derek P.',
-    role: 'Member for 5 months',
-    rating: 5,
-    text: 'The brotherhood is real. These guys genuinely want to see you win. Between the challenges, voice calls, and daily support, I never felt alone in my journey. TSM delivers results.',
-    result: 'Overall Glow Up'
-  }
+    {
+        name: 'Michael R.',
+        role: 'Member for 8 months',
+        text: 'TSM changed my life. The accountability system kept me on track. Lost 30lbs and gained confidence I never knew I had.',
+        initials: 'MR',
+        gradient: 'from-blue-500 to-cyan-500'
+    },
+    {
+        name: 'Brandon K.',
+        role: 'Member for 6 months',
+        text: 'Best investment I\'ve ever made. Finally found a program that actually delivers results.',
+        initials: 'BK',
+        gradient: 'from-indigo-500 to-purple-500'
+    },
+    {
+        name: 'Tyler S.',
+        role: 'Member for 1 year',
+        text: 'The mental health and charisma modules changed how I interact with the world. Worth every penny.',
+        initials: 'TS',
+        gradient: 'from-emerald-500 to-teal-500'
+    },
+    {
+        name: 'Jordan M.',
+        role: 'Member for 4 months',
+        text: 'I was skeptical at first, but the results are undeniable. The nutrition modules alone are worth the price.',
+        initials: 'JM',
+        gradient: 'from-orange-500 to-amber-500'
+    },
+    {
+        name: 'Cameron L.',
+        role: 'Member for 10 months',
+        text: 'Every module is packed with actionable advice. The accountability partners pushed me harder than I ever pushed myself.',
+        initials: 'CL',
+        gradient: 'from-pink-500 to-rose-500'
+    },
+    {
+        name: 'Derek P.',
+        role: 'Member for 5 months',
+        text: 'The brotherhood is real. These guys genuinely want to see you win. I never felt alone in my journey.',
+        initials: 'DP',
+        gradient: 'from-sky-500 to-indigo-500'
+    }
 ];
 
-export default function Testimonials() {
-  return (
-    <section className="relative py-24 bg-gradient-to-b from-blue-50/20 via-sky-50/25 to-white">
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-35">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-sky-300/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-indigo-200/20 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 border border-yellow-200 rounded-full mb-6 shadow-sm"
-          >
-            <Star className="w-4 h-4 text-yellow-600 fill-yellow-600" />
-            <span className="text-sm font-semibold text-slate-700">5-Star Reviews</span>
-            <Star className="w-4 h-4 text-yellow-600 fill-yellow-600" />
-          </motion.div>
-
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-sky-900 bg-clip-text text-transparent">
-            What Our Members Say
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Don't just take our word for it - hear from the brotherhood
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03, y: -5 }}
-              className="group relative"
-            >
-              <div className="relative h-full bg-white border-2 border-slate-200 rounded-2xl p-6 overflow-hidden transition-all duration-300 hover:border-sky-300 hover:shadow-xl shadow-md">
-                {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 to-blue-50/0 group-hover:from-sky-50/30 group-hover:to-blue-50/30 transition-all duration-300" />
-
-                <div className="relative">
-                  {/* Quote icon */}
-                  <div className="absolute -top-2 -left-2 opacity-10">
-                    <Quote className="w-16 h-16 text-slate-400 fill-slate-400" />
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4 relative z-10">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                    ))}
-                  </div>
-
-                  {/* Testimonial text */}
-                  <p className="text-slate-700 leading-relaxed mb-6 relative z-10">
-                    "{testimonial.text}"
-                  </p>
-
-                  {/* Result badge */}
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-50 border border-green-200 rounded-full mb-4">
-                    <div className="w-2 h-2 bg-green-500 rounded-full" />
-                    <span className="text-xs font-semibold text-green-700">{testimonial.result}</span>
-                  </div>
-
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-bold shadow-sm">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="font-bold text-slate-900 group-hover:text-sky-900 transition-colors">
-                        {testimonial.name}
-                      </div>
-                      <div className="text-sm text-slate-600">{testimonial.role}</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Corner decoration */}
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-sky-100/30 to-transparent rounded-tl-full" />
-              </div>
-            </motion.div>
-          ))}
+const TestimonialCard = ({ data }: { data: typeof testimonials[0] }) => (
+    <div className="w-[350px] bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-lg hover:border-blue-200 transition-all duration-300 mx-3 flex flex-col h-full cursor-default">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                ))}
+            </div>
+            <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">
+                <CheckCircle2 className="w-3 h-3" />
+                VERIFIED
+            </div>
         </div>
 
-        {/* Bottom stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-8 px-8 py-4 bg-slate-50 border-2 border-slate-200 rounded-full shadow-md">
-            <div className="flex items-center gap-2">
-              <Star className="w-6 h-6 text-yellow-500 fill-yellow-500" />
-              <div className="text-left">
-                <div className="text-2xl font-bold text-slate-900">4.9/5</div>
-                <div className="text-xs text-slate-600">Average Rating</div>
-              </div>
+        {/* Content */}
+        <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
+            "{data.text}"
+        </p>
+
+        {/* Footer */}
+        <div className="flex items-center gap-3 pt-4 border-t border-slate-50 mt-auto">
+            <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${data.gradient} flex items-center justify-center text-white text-sm font-bold shadow-sm`}>
+                {data.initials}
             </div>
-            <div className="w-px h-12 bg-slate-300" />
-            <div className="text-left">
-              <div className="text-2xl font-bold text-slate-900">2,500+</div>
-              <div className="text-xs text-slate-600">5-Star Reviews</div>
+            <div>
+                <div className="font-bold text-slate-900 text-sm">{data.name}</div>
+                <div className="text-xs text-slate-500">{data.role}</div>
             </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
+        </div>
+    </div>
+);
+
+export default function Testimonials() {
+    return (
+        <section className="relative py-24 bg-slate-50 overflow-hidden">
+            {/* Background Decor */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px]" />
+                <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-indigo-100/40 rounded-full blur-[100px]" />
+            </div>
+
+            <div className="container mx-auto px-4 relative z-10 mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center max-w-3xl mx-auto"
+                >
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-full mb-6 shadow-sm">
+                        <div className="flex -space-x-1">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="w-4 h-4 rounded-full bg-yellow-400 border border-white" />
+                            ))}
+                        </div>
+                        <span className="text-xs font-bold text-slate-700">Loved by 2,500+ Members</span>
+                    </div>
+
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 tracking-tight">
+                        Don't just take our word for it.
+                    </h2>
+                    <p className="text-lg text-slate-500">
+                        Join thousands of men who have transformed their physique, mindset, and lifestyle.
+                    </p>
+                </motion.div>
+            </div>
+
+            {/* Marquee Section */}
+            <div className="relative flex flex-col gap-6">
+                {/* Row 1 */}
+                <Marquee pauseOnHover className="[--duration:40s]">
+                    {testimonials.map((item, idx) => (
+                        <TestimonialCard key={`row1-${idx}`} data={item} />
+                    ))}
+                </Marquee>
+
+                {/* Row 2 (Reverse) */}
+                <Marquee pauseOnHover reverse className="[--duration:40s]">
+                    {testimonials.map((item, idx) => (
+                        <TestimonialCard key={`row2-${idx}`} data={item} />
+                    ))}
+                </Marquee>
+
+                {/* Gradient Masks (Fade edges) */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-slate-50 dark:from-background" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-slate-50 dark:from-background" />
+            </div>
+
+            {/* Bottom Trust Indicators */}
+            <div className="container mx-auto px-4 mt-16">
+                <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                    {[{brand: 'Trustpilot', color: '#00d65d'},{brand: 'Google Reviews', color: '#FF4444'}, {brand: 'Product Hunt', color: '#F4DD12'}].map((brand) => (
+                        <motion.span key={brand.brand} className={`text-xl font-bold text-slate-400 transition-all duration-200 flex items-center gap-2`} whileHover={{ color: brand.color, fill: brand.color }} whileTap={{ scale: 0.9 }}>
+              <Star className={`w-5 h-5 fill-[${brand.color}]`} /> {brand.brand}
+            </motion.span>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }

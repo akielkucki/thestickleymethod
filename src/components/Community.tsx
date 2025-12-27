@@ -1,190 +1,173 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Shield, Handshake, MessageSquare, TrendingUp, Award } from 'lucide-react';
+import { Users, Shield, Handshake, MessageSquare, TrendingUp, Award, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const features = [
   {
     icon: Users,
     title: 'Brotherhood',
-    description: 'Join a community of ambitious men dedicated to self-improvement and mutual support'
+    description: 'Join a vetted circle of ambitious men dedicated to mutual growth.'
   },
   {
     icon: Shield,
     title: 'Accountability',
-    description: 'Daily check-ins and accountability partners to keep you on track towards your goals'
+    description: 'Daily protocols and partners to ensure you never drift off course.'
   },
   {
     icon: Handshake,
-    title: 'Support Network',
-    description: 'Get advice, share wins, and learn from men at different stages of their journey'
+    title: 'Network',
+    description: 'Access to men at different stages, from beginners to 7-figure mentors.'
   },
   {
     icon: MessageSquare,
-    title: 'Active Discussion',
-    description: '24/7 community engagement with real-time feedback and expert guidance'
+    title: 'War Room',
+    description: '24/7 engagement with real-time tactical feedback and guidance.'
   },
   {
     icon: TrendingUp,
-    title: 'Progress Tracking',
-    description: 'Share your transformation and celebrate milestones with the brotherhood'
+    title: 'Tracking',
+    description: 'Data-driven progress monitoring to visualize your transformation.'
   },
   {
     icon: Award,
-    title: 'Competitions',
-    description: 'Monthly challenges with cash prizes and recognition for top performers'
+    title: 'Competition',
+    description: 'Monthly challenges with cash prizes to spark your competitive drive.'
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
 export default function Community() {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-sky-50/20 to-white overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-300/25 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-sky-300/25 rounded-full blur-3xl" />
-      </div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          {/* Left side - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full mb-6 shadow-sm"
-            >
-              <span className="text-sm font-semibold text-slate-700">Exclusive Community</span>
-            </motion.div>
+      <section className="relative py-24 bg-slate-50 overflow-hidden">
+        {/* Background: Subtle radial gradient for depth */}
+        <div className="absolute inset-0 bg-white">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-50/50 rounded-full blur-[80px] -translate-x-1/2 translate-y-1/2" />
+        </div>
 
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-blue-900 bg-clip-text text-transparent">
-              More Than Just Training
-            </h2>
+        <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              The Stickley Method isn't just a program—it's a brotherhood. When you join TSM, you become part of an elite community of men who hold each other accountable and push each other to be better every single day.
-            </p>
-
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </div>
-                <div>
-                  <h4 className="text-slate-900 font-semibold mb-1">Real Results, Real People</h4>
-                  <p className="text-slate-600">Verified transformations from members who've been where you are</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </div>
-                <div>
-                  <h4 className="text-slate-900 font-semibold mb-1">No Judgment Zone</h4>
-                  <p className="text-slate-600">A safe space to share struggles and celebrate victories</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </div>
-                <div>
-                  <h4 className="text-slate-900 font-semibold mb-1">Expert Guidance</h4>
-                  <p className="text-slate-600">Direct access to experienced coaches and mentors</p>
-                </div>
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="mt-8"
-            >
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                Join the Brotherhood
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* Right side - Features Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.div
-                  key={feature.title}
+            {/* Left side - Content (Spans 5 columns) */}
+            <div className="lg:col-span-5 flex flex-col items-start">
+              <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="group relative"
-                >
-                  <div className="relative bg-white border-2 border-slate-200 rounded-xl p-6 h-full transition-all duration-300 hover:border-sky-300 hover:shadow-lg shadow-sm">
-                    {/* Hover gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 to-blue-50/0 group-hover:from-sky-50/30 group-hover:to-blue-50/30 transition-all duration-300 rounded-xl" />
-
-                    <div className="relative">
-                      {/* Icon */}
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-sky-100 to-blue-100 rounded-lg border-2 border-sky-200 mb-4">
-                        <Icon className="w-6 h-6 text-sky-600" />
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-900 transition-colors">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-
-        {/* Bottom testimonial strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-8 px-8 py-4 bg-slate-50 border-2 border-slate-200 rounded-full shadow-md">
-            <div className="flex -space-x-3">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 border-2 border-white flex items-center justify-center text-white font-bold text-sm shadow-sm"
-                >
-                  {String.fromCharCode(64 + i)}
+                  transition={{ duration: 0.6 }}
+              >
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 border border-slate-200 rounded-full mb-6">
+                  <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
+                  <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">Members Only</span>
                 </div>
-              ))}
+
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 tracking-tight leading-[1.1]">
+                  Iron sharpens <br />
+                  <span className="text-blue-600">Iron.</span>
+                </h2>
+
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  The Stickley Method isn't just a course; it's an ecosystem.
+                  You become part of an elite network that holds you to a higher standard.
+                </p>
+
+                {/* Checklist */}
+                <div className="space-y-5 mb-10">
+                  {[
+                    { title: "Real Results", desc: "Verified transformations, no fluff." },
+                    { title: "Zero Judgment", desc: "A safe space to share struggles." },
+                    { title: "Expert Access", desc: "Direct line to coaches & mentors." }
+                  ].map((item, i) => (
+                      <div key={i} className="flex gap-4 group">
+                        <div className="mt-1 flex-shrink-0">
+                          <CheckCircle2 className="w-6 h-6 text-blue-600" />
+                        </div>
+                        <div>
+                          <h4 className="text-slate-900 font-semibold text-base">{item.title}</h4>
+                          <p className="text-slate-500 text-sm">{item.desc}</p>
+                        </div>
+                      </div>
+                  ))}
+                </div>
+
+                <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg shadow-lg hover:bg-slate-800 hover:shadow-xl transition-all duration-300"
+                >
+                  Apply for Access
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+
+                {/* Social Proof - Mini */}
+                <div className="mt-8 flex items-center gap-3 text-sm text-slate-500">
+                  <div className="flex -space-x-2">
+                    {[...Array(4)].map((_, i) => (
+                        <div key={i} className={`w-8 h-8 rounded-full border-2 border-white bg-slate-200 bg-[url('https://i.pravatar.cc/100?img=${i + 10}')] bg-cover`} />
+                    ))}
+                  </div>
+                  <p>Joined by <span className="font-bold text-slate-900">5,000+ men</span></p>
+                </div>
+              </motion.div>
             </div>
-            <p className="text-slate-600">
-              <span className="font-bold text-slate-900">5,000+ members</span> have already joined
-            </p>
+
+            {/* Right side - Features Grid (Spans 7 columns) */}
+            <div className="lg:col-span-7">
+              <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              >
+                {features.map((feature, index) => {
+                  const Icon = feature.icon;
+                  return (
+                      <motion.div
+                          key={feature.title}
+                          variants={itemVariants}
+                          className="group"
+                      >
+                        <div className="h-full bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-900/5 relative overflow-hidden">
+                          {/* Subtle accent gradient on hover */}
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 scale-0 group-hover:scale-100 opacity-50" />
+
+                          <div className="relative">
+                            <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 text-slate-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                              <Icon className="w-5 h-5" />
+                            </div>
+
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">
+                              {feature.title}
+                            </h3>
+                            <p className="text-sm text-slate-500 leading-relaxed group-hover:text-slate-600">
+                              {feature.description}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
   );
 }
